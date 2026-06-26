@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>車輛改裝 SVD 槓桿分析器</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="control-panel" aria-label="車輛改裝參數輸入">
+      <div class="panel-head">
+        <div>
+          <h1>車輛改裝 SVD 槓桿分析器</h1>
+          <p>80 項參數，找出最值得強化的槓桿與可能崩潰點。</p>
+        </div>
+        <button id="resetBtn" class="icon-button" type="button" title="重設" aria-label="重設">↺</button>
+      </div>
+
+      <div class="tool-row">
+        <label>
+          <span>分類</span>
+          <select id="categoryFilter"></select>
+        </label>
+        <label>
+          <span>搜尋</span>
+          <input id="searchInput" type="search" placeholder="例如：抓地力、渦輪、煞車">
+        </label>
+      </div>
+
+      <div id="inputs" class="inputs-grid"></div>
+
+      <div class="actions">
+        <button id="computeBtn" type="button">Compute</button>
+        <button id="sampleBtn" type="button" class="secondary">範例改裝車</button>
+      </div>
+    </section>
+
+    <section class="results-panel" aria-label="分析結果">
+      <div class="summary-strip">
+        <div>
+          <span class="summary-label">最適合強化</span>
+          <strong id="topNode">-</strong>
+        </div>
+        <div>
+          <span class="summary-label">可能崩潰點</span>
+          <strong id="collapseNode">-</strong>
+        </div>
+        <div>
+          <span class="summary-label">最低分項目</span>
+          <strong id="lowestNode">-</strong>
+        </div>
+        <div>
+          <span class="summary-label">主模態集中度</span>
+          <strong id="topShare">-</strong>
+        </div>
+      </div>
+
+      <pre id="resultText" class="result-text" aria-live="polite"></pre>
+
+      <div class="charts">
+        <figure>
+          <figcaption>系統影響 Heatmap</figcaption>
+          <canvas id="heatmap" width="900" height="520"></canvas>
+        </figure>
+        <figure>
+          <figcaption>槓桿分數 Top 20</figcaption>
+          <canvas id="leverageChart" width="900" height="520"></canvas>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
