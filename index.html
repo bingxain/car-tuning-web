@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>車輛改裝 SVD 槓桿分析器</title>
+  <title>車輛改裝分析器</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,8 +11,8 @@
     <section class="control-panel" aria-label="車輛改裝參數輸入">
       <div class="panel-head">
         <div>
-          <h1>車輛改裝 SVD 槓桿分析器</h1>
-          <p>80 項參數，找出最值得強化的槓桿與可能崩潰點。</p>
+          <h1>車輛改裝分析器</h1>
+          <p>真實單位輸入，內部轉成能力分數，再分析槓桿、低分項與崩潰風險。</p>
         </div>
         <button id="resetBtn" class="icon-button" type="button" title="重設" aria-label="重設">↺</button>
       </div>
@@ -47,7 +47,7 @@
           <strong id="collapseNode">-</strong>
         </div>
         <div>
-          <span class="summary-label">最低分項目</span>
+          <span class="summary-label">最低能力分數</span>
           <strong id="lowestNode">-</strong>
         </div>
         <div>
@@ -60,12 +60,16 @@
 
       <div class="charts">
         <figure>
-          <figcaption>系統影響 Heatmap</figcaption>
+          <figcaption>影響矩陣 Heatmap</figcaption>
           <canvas id="heatmap" width="900" height="520"></canvas>
         </figure>
         <figure>
           <figcaption>槓桿分數 Top 20</figcaption>
           <canvas id="leverageChart" width="900" height="520"></canvas>
+        </figure>
+        <figure>
+          <figcaption>能力分數倒數</figcaption>
+          <canvas id="weaknessChart" width="900" height="520"></canvas>
         </figure>
       </div>
     </section>

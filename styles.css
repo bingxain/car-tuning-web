@@ -130,7 +130,7 @@ p {
 
 .metric-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 72px;
+  grid-template-columns: minmax(0, 1fr) 108px 54px;
   gap: 8px;
   align-items: center;
   padding: 8px;
@@ -158,12 +158,35 @@ p {
 }
 
 .metric-row input[type="number"] {
-  width: 72px;
+  width: 108px;
   height: 32px;
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 0 6px;
   text-align: right;
+}
+
+.unit {
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.range-note {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.score-pill {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: #eef3f5;
+  color: var(--focus);
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .slider {
@@ -246,6 +269,10 @@ p {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
   margin-top: 10px;
+}
+
+.charts figure:first-child {
+  grid-column: 1 / -1;
 }
 
 figure {
